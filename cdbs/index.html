@@ -237,6 +237,12 @@ function trackConv(label, url){
   /* header actions + CTAs (ported from the $250 LP) */
   .hdr .row{display:flex;align-items:center;justify-content:space-between;gap:12px}
   .hdr .acts{display:flex;align-items:center;gap:10px}
+  .hdr a.logobox{display:block;line-height:0;border-radius:6px;transition:opacity .2s}
+  .hdr a.logobox:hover{opacity:.85}
+  .hdr a.logobox:focus-visible,.ftr a.logobox:focus-visible,.home-link:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+  .home-link{display:inline-flex;align-items:center;gap:6px;color:#d9d2c8;font-size:13.5px;font-weight:600;text-decoration:none;padding:10px 8px;margin-right:4px;transition:color .2s}
+  .home-link svg{width:15px;height:15px}
+  .home-link:hover{color:#fff}
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px}
   .btn .arrw{width:17px;height:17px;flex:0 0 17px;animation:dip 1.6s ease-in-out infinite}
   @keyframes dip{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
@@ -249,7 +255,7 @@ function trackConv(label, url){
   .open-now .odot{width:8px;height:8px;border-radius:50%;background:#22a35c;animation:opulse 2s infinite}
   @keyframes opulse{0%{box-shadow:0 0 0 0 rgba(34,163,92,.5)}70%{box-shadow:0 0 0 7px rgba(34,163,92,0)}100%{box-shadow:0 0 0 0 rgba(34,163,92,0)}}
   body.is-open .open-now{display:inline-flex}
-  @media(max-width:919px){.hdr .btn-call{display:none}.hdr .open-now{display:none!important}.btn-hdr{padding:11px 16px;font-size:12.5px}.hero-cta .btn{min-width:100%}}
+  @media(max-width:919px){.hdr .btn-call{display:none}.hdr .open-now{display:none!important}.home-link{display:none}.btn-hdr{padding:11px 16px;font-size:12.5px}.hero-cta .btn{min-width:100%}}
 
   /* find us */
   .findus{background:var(--mist);padding:52px 0 56px;border-top:1px solid var(--line)}
@@ -357,6 +363,8 @@ function trackConv(label, url){
   .ftr .logobox{display:inline-block;margin-bottom:14px}
   .ftr img{height:48px;width:auto}
   .ftr p{margin:4px 0}
+  .ftr .ftr-home{color:var(--gold-lt);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+  .ftr .ftr-home:hover{color:#fff}
 
   /* sticky mobile CTA */
   .mbar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;gap:1px;background:var(--navy-2);box-shadow:0 -6px 18px rgba(22,21,20,.3);padding-bottom:env(safe-area-inset-bottom)}
@@ -459,8 +467,9 @@ function trackConv(label, url){
 
 <header class="hdr">
   <div class="row">
-    <span class="logobox"><img src="/assets/logo.png" alt="Grey Street Dentist"></span>
+    <a class="logobox" href="https://www.greystreetdentist.com.au/" title="Back to the Grey Street Dentist website"><img src="/assets/logo.png" alt="Grey Street Dentist home"></a>
     <div class="acts">
+      <a class="home-link" href="https://www.greystreetdentist.com.au/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>Main website</a>
       <a class="open-now" href="tel:0395344017" onclick="return trackConv('call_click')"><span class="odot"></span>Open now</a>
       <a class="btn btn-call" href="tel:0395344017" onclick="return trackConv('call_click')">&#9742;&nbsp;(03) 9534 4017</a>
       <a class="btn btn-teal btn-hdr" href="#check" onclick="trackConv('cdbs_check_click')">Check eligibility <svg class="arrw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M12 4v15M5 12l7 7 7-7"/></svg></a>
@@ -680,7 +689,8 @@ function trackConv(label, url){
 
 <footer class="ftr">
   <div class="wrap">
-    <span class="logobox"><img src="/assets/logo.png" alt="Grey Street Dentist"></span>
+    <a class="logobox" href="https://www.greystreetdentist.com.au/" title="Back to the Grey Street Dentist website"><img src="/assets/logo.png" alt="Grey Street Dentist home"></a>
+    <p><a class="ftr-home" href="https://www.greystreetdentist.com.au/">Visit the Grey Street Dentist website</a></p>
     <p><a href="https://www.google.com/maps/search/?api=1&amp;query=Grey+Street+Dentist%2C+18+Grey+Street%2C+St+Kilda+VIC+3182" target="_blank" rel="noopener" style="color:inherit">Suite S2, 18 Grey Street, St Kilda VIC 3182</a> &middot; <a href="tel:0395344017">(03) 9534 4017</a></p>
     <p>&copy; 2026 Grey Street Dentist. All rights reserved. CDBS eligibility criteria apply; excludes orthodontic and cosmetic treatment.</p>
   </div>
